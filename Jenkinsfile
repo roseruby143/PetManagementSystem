@@ -6,7 +6,7 @@ pipeline {
 			steps {
 				git 'https://github.com/roseruby143/PetManagementSystem.git'
 				
-				sh './mvnw compile'
+				sh "./mvnw compile"
 				
 				echo 'Building the project'
 			}
@@ -14,7 +14,7 @@ pipeline {
 		
 		stage('Test') {
 			steps {
-				sh './mvnw test'
+				sh "./mvnw test"
 			
 				echo 'Testing the project'
 			}
@@ -22,7 +22,7 @@ pipeline {
 		
 		stage('Build') {
 			steps {
-				sh './mvnw package'
+				sh "./mvnw package"
 			
 				echo 'Packaging the project'
 			}
