@@ -12,14 +12,6 @@ pipeline {
 			}
 		}
 		
-		stage('Test') {
-			steps {
-				sh "./mvnw test"
-			
-				echo 'Testing the project'
-			}
-		}
-		
 		stage('Deploy') {
 			steps {
 				sh "./mvnw package"
