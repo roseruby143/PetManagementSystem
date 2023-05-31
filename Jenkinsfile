@@ -28,7 +28,7 @@ pipeline {
 			steps {
 				echo '----------------- This is a build docker image phase ----------'
                 sh '''
-                    docker build -t petms-service-app .
+                    docker image build -t petms-service-app .
                 '''
 			}
 		}
