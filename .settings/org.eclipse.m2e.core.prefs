@@ -1,4 +1,5 @@
-activeProfiles=pom.xml
+activeProfiles=
+basedir=/Users/rubydev/Documents/Simplilearn Project Works/Module 4/PetManagementSystem
 eclipse.preferences.version=1
 resolveWorkspaceProjects=true
 version=1
