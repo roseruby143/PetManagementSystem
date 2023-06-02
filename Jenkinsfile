@@ -12,7 +12,7 @@ pipeline {
 				
 				sh './mvnw compile'
 				
-				echo 'Building the project'
+				echo '----------------- Building the project -----------------'
 			}
 		}
 		
@@ -20,7 +20,7 @@ pipeline {
 			steps {
 				sh './mvnw package'
 			
-				echo 'Packaging the project'
+				echo '----------------- Packaging the project -----------------'
 			}
 		}
 		
@@ -28,7 +28,7 @@ pipeline {
 			steps {
 				echo '----------------- This is a build docker image phase ----------'
                 sh '''
-                    docker image build -t petms-service-app .
+                    docker build -t petms-service-app .
                 '''
 			}
 		}
@@ -37,13 +37,7 @@ pipeline {
 			steps {
 				echo '----------------- This is a docker deploment phase ----------'
                 sh '''
-                (if  [ $(docker ps -a | grep petms-service-app-container | cut -d " " -f1) ]; then \
-                        echo $(docker rm -f petms-service-app-container); \
-                        echo "---------------- successfully removed petms-service-app-container ----------------"
-                     else \
-                    echo OK; \
-                 fi;);
-            	docker container run --network petms-app-network -p 9070:9070 --name petms-service-app-container -d petms-service-app
+            		docker run --network=petms-app-network -p 9091:9090 --name petms-service-app-container -d petms-service-app
             	'''
 			}
 		}
